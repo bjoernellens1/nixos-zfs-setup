@@ -28,8 +28,9 @@
 
 set -ex
 
-DISK=(/dev/vda)
+#DISK=(/dev/vda)
 #DISK=(/dev/vda /dev/vdb)
+DISK=(/dev/nvme0n1)
 
 # How to name the partitions. This will be visible in 'gdisk -l /dev/disk' and
 # in /dev/disk/by-partlabel.
@@ -40,7 +41,7 @@ PART_SWAP="swap"
 PART_ROOT="rpool"
 
 # How much swap per disk?
-SWAPSIZE=2G
+SWAPSIZE=16G
 
 # The type of virtual device for boot and root. If kept empty, the disks will
 # be joined (two 1T disks will give you ~2TB of data). Other valid options are
@@ -61,7 +62,7 @@ ZFS_ROOT="rpool"
 ZFS_ROOT_VOL="nixos"
 
 # Generate a root password with mkpasswd -m SHA-512
-ROOTPW=''
+ROOTPW='$6$K.89Tc2yYp07XJDC$yJ3YihmIcG0TMo/KB/d.ykn5JJBUXMLqzlFqpSNHMf0WlUvCvl3rkt46yz8trAnIlefhU5hBUohiCkoHbIhQ40'
 
 # Do you want impermanence? In that case set this to 1. Not yes, not hai, 1.
 IMPERMANENCE=0
